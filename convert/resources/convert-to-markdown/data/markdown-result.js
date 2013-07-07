@@ -18,9 +18,9 @@ self.port.on('failed-markdown', function(data) {
 // the main.js doesn't have the setTimeout function, its an aspect of the window, but we can't close the panel, so we
 // have to communicate back to close the window
 self.port.on('set-timer', function() {
-  console.log('setting timeout');
+//  console.log('setting timeout');
   setTimeout(function() {
-    console.log('timeout fired');
+//    console.log('timeout fired');
     self.port.emit('hide-panel');
   }, 2000);
 

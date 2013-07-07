@@ -17,8 +17,8 @@ markdown.handlePaste  = function(data) {
 	req.setRequestHeader('Content-Type', 'application/json');
 	req.send(JSON.stringify({ html: data }));
 
-  console.log('status ', req.status);
-  console.log('text ', req.responseText);
+//  console.log('status ', req.status);
+//  console.log('text ', req.responseText);
 
 	if (req.status == 200) {
     var result = JSON.parse(req.responseText);
@@ -41,7 +41,7 @@ markdown.firstTime = true;
 markdown.timerShow = function() {
   markdownPanel.show();
 
-  console.log("firstTime? ", markdown.firstTime);
+//  console.log("firstTime? ", markdown.firstTime);
 
   if (!markdown.firstTime) {
     markdownPanel.port.emit('set-timer');
@@ -53,7 +53,7 @@ markdown.timerShow = function() {
 
 exports.main = function() {
 	// this item should only work on textareas
-	console.log('installing menu item for text areas');
+//	console.log('installing menu item for text areas');
 
   markdownPanel = panel.Panel( {
     width: 600,
