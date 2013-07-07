@@ -12,13 +12,13 @@ var markdownPanel;
 markdown.handlePaste  = function(data) {
 
 	var req = new xhr.XMLHttpRequest();
-	req.open('POST', 'http://localhost:8090/convert/api/unknown/uoa/html-to-markdown', false);
-//	req.open('POST', 'http://markdown.codelounge.io//api/1/uoa/html-to-markdown', false);
+//	req.open('POST', 'http://localhost:8090/convert/api/unknown/uoa/html-to-markdown', false);
+	req.open('POST', 'http://markdown.codelounge.io/api/uoa/html-to-markdown', false);
 	req.setRequestHeader('Content-Type', 'application/json');
 	req.send(JSON.stringify({ html: data }));
 
-//  console.log('status ', req.status);
-//  console.log('text ', req.responseText);
+  console.log('status ', req.status);
+  console.log('text ', req.responseText);
 
 	if (req.status == 200) {
     var result = JSON.parse(req.responseText);
@@ -40,8 +40,6 @@ markdown.firstTime = true;
 
 markdown.timerShow = function() {
   markdownPanel.show();
-
-//  console.log("firstTime? ", markdown.firstTime);
 
   if (!markdown.firstTime) {
     markdownPanel.port.emit('set-timer');
