@@ -1,0 +1,218 @@
+<html>
+<head>
+<title>text area test</title>
+	<style type="text/css" media="screen">
+		.markdown {
+			position:relative;
+			border:10px solid gray;
+			width:188px; height:108px;
+			border-radius:15px;
+			-webkit-font-smoothing:antialiased;
+		}
+		.markdown:before {
+			color:gray;
+			font:bold 100px "Gill Sans";
+			content:"M";
+			position:absolute;
+			top:-4px;
+			left:12px;
+		}
+		.markdown .stem {
+			border:10px solid gray;
+			position:absolute;
+			height:30px;
+			right:34px;
+			top:20px;
+		}
+		.markdown .arrow {
+			width:0;
+			height:0;
+			position:absolute;
+			bottom:0px;
+			right:14px;
+			border-style:solid;
+			border-width:34px 30px 20px 30px;
+			border-color:gray transparent transparent transparent;
+		}
+
+		.markdown.spec {
+			border-color:#ccc;
+		}
+		.markdown.spec:before {
+			color:#ccc;
+		}
+		.markdown.spec .stem {
+			border-color:#ccc;
+		}
+		.markdown.spec .arrow {
+			border-top-color:#ccc;
+		}
+
+		.markdown.cutout {
+			border-color:black;
+		}
+		.markdown.cutout:before {
+			color:black;
+		}
+		.markdown.cutout .stem {
+			border-color:black;
+		}
+		.markdown.cutout .arrow {
+			border-top-color:black;
+		}
+
+		.markdown.solid {
+			background-color:black;
+			border-color:black;
+		}
+		.markdown.solid:before {
+			color:white;
+		}
+		.markdown.solid .stem {
+			border-color:white;
+		}
+		.markdown.solid .arrow {
+			border-top-color:white;
+		}
+
+		.cutout-positioner {
+			position:absolute;
+			top:8px;
+			left:269px;
+		}
+
+		.solid-positioner {
+			position:absolute;
+			top:8px;
+			left:530px;
+		}
+	</style>
+</head>
+<body>
+<b>Paste in text area</b>
+<form>
+	<div class="markdown spec">
+		<div class="stem"></div>
+		<div class="arrow"></div>
+	</div>
+	<div class="cutout-positioner">
+		<div class="markdown cutout">
+			<div class="stem"></div>
+			<div class="arrow"></div>
+		</div>
+	</div>
+	<div class="solid-positioner">
+		<div class="markdown solid">
+			<div class="stem"></div>
+			<div class="arrow"></div>
+		</div>
+	</div>
+	<hr/>
+<textarea id='fred' rows="20" cols="120">
+
+</textarea>
+	<hr/>
+	<code>
+		one line
+		two line
+		* three line
+		* four line
+		five line
+	</code>
+	<hr/>
+	<div id="clipboard_module_api_docs" class="module_api_docs">
+		<h1>clipboard</h1>
+		<div class="module_description"><!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+			<!-- contributed by Dietrich Ayala [dietrich@mozilla.com]  -->
+
+			<p>The <code>clipboard</code> module allows callers to interact with the system clipboard,
+				setting and retrieving its contents.</p>
+			<p>You can optionally specify the type of the data to set and retrieve.
+				The following types are supported:</p>
+			<ul>
+				<li><code>text</code> (plain text)</li>
+				<li><code>html</code> (a string of HTML)</li>
+				<li><code>image</code> (a base-64 encoded png)</li>
+			</ul>
+			<p>If no data type is provided, then the module will detect it for you.</p>
+			<p>Currently <code>image</code>'s type doesn't support transparency on Windows.</p>
+			<h2 id="Examples">Examples</h2>
+			<p>Set and get the contents of the clipboard.</p>
+			<div><div id="highlighter_470966" class="syntaxhighlighter  js" style="width: auto;"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code> <code class="js plain">clipboard = require(</code><code class="js string">"sdk/clipboard"</code><code class="js plain">);</code></div><div class="line number2 index1 alt1"><code class="js plain">clipboard.set(</code><code class="js string">"Lorem ipsum dolor sit amet"</code><code class="js plain">);</code></div><div class="line number3 index2 alt2"><code class="js keyword">var</code> <code class="js plain">contents = clipboard.get();</code></div></div></td></tr></tbody></table></div></div>
+			<p>Set the clipboard contents to some HTML.</p>
+			<div><div id="highlighter_943873" class="syntaxhighlighter  js" style="width: auto;"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code> <code class="js plain">clipboard = require(</code><code class="js string">"sdk/clipboard"</code><code class="js plain">);</code></div><div class="line number2 index1 alt1"><code class="js plain">clipboard.set(</code><code class="js string">"&lt;blink&gt;Lorem ipsum dolor sit amet&lt;/blink&gt;"</code><code class="js plain">, </code><code class="js string">"html"</code><code class="js plain">);</code></div></div></td></tr></tbody></table></div></div>
+			<p>If the clipboard contains HTML content, open it in a new tab.</p>
+			<div><div id="highlighter_100438" class="syntaxhighlighter  js" style="width: auto;"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code> <code class="js plain">clipboard = require(</code><code class="js string">"sdk/clipboard"</code><code class="js plain">);</code></div><div class="line number2 index1 alt1"><code class="js keyword">if</code> <code class="js plain">(clipboard.currentFlavors.indexOf(</code><code class="js string">"html"</code><code class="js plain">) != -1)</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">require(</code><code class="js string">"sdk/tabs"</code><code class="js plain">).open(</code><code class="js string">"data:text/html;charset=utf-8,"</code> <code class="js plain">+ clipboard.get(</code><code class="js string">"html"</code><code class="js plain">));</code></div></div></td></tr></tbody></table></div></div>
+			<p>Set the clipboard contents to an image.</p>
+			<div><div id="highlighter_784757" class="syntaxhighlighter  js" style="width: auto;"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code> <code class="js plain">clipboard = require(</code><code class="js string">"sdk/clipboard"</code><code class="js plain">);</code></div><div class="line number2 index1 alt1"><code class="js plain">clipboard.set(</code><code class="js string">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA"</code> <code class="js plain">+</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"AABzenr0AAAASUlEQVRYhe3O0QkAIAwD0eyqe3Q993AQ3cBSUKpygfsNTy"</code> <code class="js plain">+</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"N5ugbQpK0BAADgP0BRDWXWlwEAAAAAgPsA3rzDaAAAAHgPcGrpgAnzQ2FG"</code> <code class="js plain">+</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"bWRR9AAAAABJRU5ErkJggg%3D%3D"</code><code class="js plain">);</code></div></div></td></tr></tbody></table></div></div>
+			<p>If the clipboard contains an image, open it in a new tab.</p>
+			<div><div id="highlighter_143148" class="syntaxhighlighter  js" style="width: auto;"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code> <code class="js plain">clipboard = require(</code><code class="js string">"sdk/clipboard"</code><code class="js plain">);</code></div><div class="line number2 index1 alt1"><code class="js keyword">if</code> <code class="js plain">(clipboard.currentFlavors.indexOf(</code><code class="js string">"image"</code><code class="js plain">) != -1)</code></div><div class="line number3 index2 alt2"><code class="js spaces">&nbsp;&nbsp;</code><code class="js plain">require(</code><code class="js string">"sdk/tabs"</code><code class="js plain">).open(clipboard.get());</code></div></div></td></tr></tbody></table></div></div>
+			<p>As noted before, data type can be easily omitted for images.</p>
+			<p>If the intention is set the clipboard to a data URL as string and not as image,
+				it can be easily done specifying a different flavor, like <code>text</code>.</p>
+			<div><div id="highlighter_656275" class="syntaxhighlighter  js" style="width: auto;"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="js keyword">var</code> <code class="js plain">clipboard = require(</code><code class="js string">"sdk/clipboard"</code><code class="js plain">);</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="js plain">clipboard.set(</code><code class="js string">"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA"</code> <code class="js plain">+</code></div><div class="line number4 index3 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"AABzenr0AAAASUlEQVRYhe3O0QkAIAwD0eyqe3Q993AQ3cBSUKpygfsNTy"</code> <code class="js plain">+</code></div><div class="line number5 index4 alt2"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"N5ugbQpK0BAADgP0BRDWXWlwEAAAAAgPsA3rzDaAAAAHgPcGrpgAnzQ2FG"</code> <code class="js plain">+</code></div><div class="line number6 index5 alt1"><code class="js spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="js string">"bWRR9AAAAABJRU5ErkJggg%3D%3D"</code><code class="js plain">, </code><code class="js string">"text"</code><code class="js plain">);</code></div></div></td></tr></tbody></table></div></div>
+		</div>
+
+		<div class="api_reference">
+			<h2 class="api_header" id="API Reference">API Reference</h2>
+
+			<div class="api_component_group">
+				<h3 class="api_header" id="Functions">Functions</h3>
+
+				<div class="api_component">
+					<h4 class="api_name" id="set(data, datatype)">set(data, datatype)</h4>
+					<p>Replace the contents of the user's clipboard with the provided data.</p>
+					<div class="parameter_set">
+						<div class="api_component">
+							<div class="api_name">data : <span class="datatype">string</span></div>
+							<p>The data to put on the clipboard.</p>
+						</div>
+
+						<div class="api_component">
+							<div class="api_name">[ datatype : <span class="datatype">string</span> ]</div>
+							<p>The type of the data (optional).</p>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="api_component">
+					<h4 class="api_name" id="get(datatype)">get(datatype)</h4>
+					<p>Get the contents of the user's clipboard.</p>
+					<div class="parameter_set">
+						<div class="api_component">
+							<div class="api_name">[ datatype : <span class="datatype">string</span> ]</div>
+							<p>Retrieve the clipboard contents only if matching this type (optional).
+								The function will return null if the contents of the clipboard do not match
+								the supplied type.</p>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="api_component_group">
+				<h3 class="api_header" id="Properties">Properties</h3>
+
+				<div class="api_component">
+					<h4 class="api_name" id="currentFlavors">currentFlavors : <span class="datatype">array</span></h4>
+					<p>Data on the clipboard is sometimes available in multiple types. For example,
+						HTML data might be available as both a string of HTML (the <code>html</code> type)
+						and a string of plain text (the <code>text</code> type). This function returns an array
+						of all types in which the data currently on the clipboard is available.</p>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</form>
+</body>
+</html>

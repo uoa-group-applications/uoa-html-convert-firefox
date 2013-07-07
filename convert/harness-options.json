@@ -1,0 +1,52 @@
+{
+ "enable_e10s": false, 
+ "is-sdk-bundled": true, 
+ "jetpackID": "jid0-FIeylukogOcCrlZ7fB3q20nxFDM@jetpack", 
+ "loader": "addon-sdk/lib/sdk/loader/cuddlefish.js", 
+ "main": "main", 
+ "mainPath": "convert-to-markdown/main", 
+ "manifest": {
+  "convert-to-markdown/main": {
+   "docsSHA256": null, 
+   "jsSHA256": "d8fdb366407207aa5c44bc105676abee93a66db52ccb319c5c55e4c0dc8e470e", 
+   "moduleName": "main", 
+   "packageName": "convert-to-markdown", 
+   "requirements": {
+    "sdk/clipboard": "sdk/clipboard", 
+    "sdk/context-menu": "sdk/context-menu", 
+    "sdk/net/xhr": "sdk/net/xhr",
+    "sdk/panel": "sdk/panel",
+    "sdk/widget": "sdk/widget",
+    "sdk/self": "sdk/self"
+   }, 
+   "sectionName": "lib"
+  }
+ }, 
+ "metadata": {
+  "addon-sdk": {
+   "description": "Add-on development made easy.", 
+   "keywords": [
+    "javascript", 
+    "engine", 
+    "addon", 
+    "extension", 
+    "xulrunner", 
+    "firefox", 
+    "browser"
+   ], 
+   "license": "MPL 2.0", 
+   "name": "addon-sdk"
+  }, 
+  "convert-to-markdown": {
+   "author": "rvowles", 
+   "description": "Converts selected HTML to markdown", 
+   "main": "main", 
+   "name": "convert-to-markdown", 
+   "version": "initial.rev11"
+  }
+ }, 
+ "name": "convert-to-markdown", 
+ "sdkVersion": "1.14", 
+ "staticArgs": {}, 
+ "verbose": false
+}
